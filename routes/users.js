@@ -9,7 +9,7 @@ const authenticate = require('../authenticate');
 //    res.send('respond with a resource');
 //});
 router.route('/')
-.get(authenticate.verifyAdmin, (req, res, next) => {
+.get(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
     User.find()
     .then(users => {
         res.statusCode = 200;
